@@ -168,11 +168,26 @@ def player_numbers(team_numbers)
 end
 
 def player_stats(player_name)
-  #returns hash of player stats
-
+  game_hash.each do |home_away_location, team_info|
+    team_info[:players].each do |player|
+      if player[:player_name] == player_name
+        return player
+      end
+    end
+  end
 end
 
 def big_shoe_rebounds()
-  #fnd player with biggest shoe size, return that players number of rebounds
-
+ bigest = 0
+ rebounds= 0
+ game_hash.each do |home_away_location, team_info|
+   team_info[:players].each do |player|
+     size = player[:shoe]
+     if size > biggest
+       biggest = size
+       rebounds= player[:rebounds]
+     end
+   end
+ end
+ rebounds
 end
