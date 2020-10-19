@@ -148,8 +148,11 @@ game_hash.each do |home_away_location, team_info|
 end
 
 def team_colors(team_names)
- #returns an Array
-
+  game_hash.each do |home_away_location, team_info|
+    if team_info[:team_name] == team_name
+      return team_info[:colors].map
+    end
+  end
 end
 
 def player_numbers(team_names)
