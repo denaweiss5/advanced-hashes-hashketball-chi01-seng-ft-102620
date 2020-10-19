@@ -155,6 +155,10 @@ def team_colors(team_names)
   end
 end
 
+def team_names
+  game_hash.map {|home_away_location, team_info| team_info[:team_name]}
+end
+
 def player_numbers(team_names)
   #return an Array
 
