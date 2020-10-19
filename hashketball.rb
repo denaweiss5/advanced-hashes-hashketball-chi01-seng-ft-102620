@@ -159,9 +159,12 @@ def team_names
   game_hash.map {|home_away_location, team_info| team_info[:team_name]}
 end
 
-def player_numbers(team_names)
-  #return an Array
-
+def player_numbers(team_numbers)
+  game_hash.each do |home_away_location, team_info|
+    if team_info[:team_name]== team_numbers
+      return team_info[:players].map { |player| player[:number] }
+    end
+  end
 end
 
 def player_stats(player_name)
